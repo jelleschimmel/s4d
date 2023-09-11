@@ -25,8 +25,8 @@
         style="width: 300px;">
   <hr>
 
-  <img id="firstBird"  src="/Javascript Introduction - Week 1/images/mousebird.jpg" style="left: 400px">
-  <img id="secondBird" src="/Javascript Introduction - Week 1/images/crested_crane.jpg" style="left: 800px">
+  <img id="firstBird"  src="/Javascript Introduction - Week 1/images/mousebird.jpg" alt="" style="left: 400px; opacity: 100;">
+  <img id="secondBird" src="/Javascript Introduction - Week 1/images/crested_crane.jpg" alt="" style="left: 800px; opacity: 100;">
 
   <script>
 
@@ -38,12 +38,16 @@
       // TODO 1: The first bird should get higher opacity when slider values are high.
       //         The second bird should get lower opacity when slider values are high.
 
-      document.getElementById('firstBird').style.opacity = 
+      document.getElementById('firstBird').style.opacity = document.getElementById("slider").valueAsNumber;
+      document.getElementById('secondBird').style.opacity = 1 - document.getElementById("slider").valueAsNumber;
 
       // TODO 3: The left of the first bird should move from 400 pixels to 0 pixels
       //         when slider values go from 1 to 0.
       //         The second bird should move from 400 pixels to 800 pixels when slider values
       //         go from 0 to 1.
+
+      document.getElementById('firstBird').style.left = document.getElementById("slider").valueAsNumber + 400 * ;
+      document.getElementById("secondBird").style.left = 
 
       console.log("updateImages ended");
     }
@@ -52,6 +56,8 @@
 
     // TODO 2: make sure that images are updated when the page is loaded
     //         (i.e. before the user has moved the slider).
+
+    updateImages();
 
     console.log("script ended")
   </script>
