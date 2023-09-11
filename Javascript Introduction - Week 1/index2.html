@@ -58,40 +58,30 @@
 <body>
   <div id="slideShow">
     <div id="title">Jille's Bug Gallery</div>
-    <image id="mainImage" src="bug1.jpg">
+    <image id="mainImage" alt="" src="bug1.jpg">
     <button id="nextButton">»</button>
   </div>
   <script>
 
-    var pictureNames = [ "bug1.jpg",  "bug2.jpg",  "bug3.jpg",  "bug4.jqg",  "bug5.jpg",  "bug6.jpg", ]
+    var pictureNames = [ "images/bug1.jpg",  "images/bug2.jpg",  "images/bug3.jpg",  "images/bug4.jpg",  "images/bug5.jpg",  "images/bug6.jpg", ];
 
-    function showPicture1(){
-      document.getElementById("mainImage").src = pictureNames[1]
-      document.getElementById("nextButton").onclick = showPicture2
-    }
-    function showPicture2() {
-      document.getElementById("mainImage").src = pictureNames[2]
-      document.getElementById("nextButton").onclick = showPicture3
-    }
-    function showPicture3() {
-      document.getElementById("mainImage").src = pictureNames[3]
-      document.getElementById("nextButton").onclick = showPicture4
-    }
-    function showPicture4() {
-      document.getElementById("mainImage").src = pictureNames[4]
-      document.getElementById("nextButton").onclick = showPicture5
-    }
-    function showPicture5() {
-      document.getElementById("mainImage").src = pictureNames[5]
-      document.getElementById("nextButton").onclick = showPicture6
-    }
+var pictureNumber = 0
 
-    function showPicture6() {
-      document.getElementById("mainImage").src = pictureNames[6]
-      document.getElementById("nextButton").onclick = showPicture1
-    }
+function updatePicture() {
+  var pictureIndex =  pictureNumber % 6;        // TODO 1: use modulo to calculate a number
+                              //         between 0 - 5 from pictureNumber
 
-    showPicture1()
+  document.getElementById("mainImage").src = pictureNames[pictureIndex];    // TODO 2: use the pictureIndex to
+                                                 //         get the correct filename
+                                                 //         from the pictureNames array.
+}
+
+function nextPicture() {
+  pictureNumber = pictureNumber + 1;
+  updatePicture();
+}
+
+document.getElementById("nextButton").onclick = nextPicture
   </script>
 </body>
 </html>
